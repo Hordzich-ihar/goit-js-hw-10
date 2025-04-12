@@ -5,7 +5,6 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const calendarFace = document.querySelector('#datetime-picker');
-
 const startBtn = document.querySelector('button[data-start]');
 const daysElement = document.querySelector('[data-days]');
 const hoursElement = document.querySelector('[data-hours]');
@@ -25,6 +24,8 @@ function updateTimer() {
     hoursElement.textContent = '00';
     minElement.textContent = '00';
     secElement.textContent = '00';
+    startBtn.disabled = false; 
+    calendarFace.disabled = false;
     return;
   }
 
@@ -37,13 +38,17 @@ function updateTimer() {
 }
 
 function startTimer() {
-  if (!userSelectedTime) return;
+  if (!userSelectedTime || isNaN(userSelectedTime)) return;
 
   const currentTime = Date.now();
   if (userSelectedTime <= currentTime) {
-    iziToast.error({ message: 'Please choose a date in the future' });
+    iziToast.error({ message: 'Пожалуйста, выберите дату в будущем' });
     return;
   }
+
+
+  startBtn.disabled = true;
+  calendarFace.disabled = true;
 
   updateTimer();
   intervalId = setInterval(updateTimer, 1000);
@@ -65,6 +70,7 @@ function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
 
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -72,14 +78,21 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     userSelectedTime = selectedDates[0].getTime();
+
+    if (userSelectedTime <= Date.now()) {
+      iziToast.error({ message: 'Пожалуйста, выберите дату в будущем' });
+      startBtn.disabled = true;
+    } else {
+      startBtn.disabled = false;
+    }
+
     console.log(selectedDates[0]);
   },
 };
 
 flatpickr(calendarFace, options);
 
-startBtn.addEventListener('click', startTimer);
 
-console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
-console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
-console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
+startBtn.disabled = true;
+
+startBtn.addEventListener('click', startTimer);
