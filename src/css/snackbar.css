@@ -79,20 +79,4 @@
   background: #3f59e0;
 }
 
-.iziToast.toast-success {
-  background: #2fbd5a;
-  color: #fff;
-  border-radius: 6px;
-  box-shadow: none;
-}
-.iziToast.toast-error {
-  background: #e34c3c;
-  color: #fff;
-  border-radius: 6px;
-  box-shadow: none;
-}
-.iziToast.toast-success .iziToast-body,
-.iziToast.toast-error .iziToast-body {
-  font-size: 18px;
-  font-weight: 600;
-}
+/* Use default iziToast colors by removing overrides */

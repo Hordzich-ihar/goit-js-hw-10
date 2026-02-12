@@ -2,10 +2,14 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const form = document.querySelector('.snackbar-form');
-const delayInput = form?.elements.delay;
-const stateInputs = form?.elements.state;
+if (!form) {
+  throw new Error('Snackbar form not found');
+}
 
-form?.addEventListener('submit', onSubmit);
+const delayInput = form.elements.delay;
+const stateInputs = form.elements.state;
+
+form.addEventListener('submit', onSubmit);
 
 function onSubmit(event) {
   event.preventDefault();
@@ -23,9 +27,9 @@ function onSubmit(event) {
 
   createPromise(delay, state)
     .then(value => {
-      console.log(`✅ Fulfilled promise in ${value}ms`);
+      console.log(` Fulfilled promise in ${value}ms`);
       iziToast.success({
-        message: `✅ Fulfilled promise in ${value}ms`,
+        message: ` Fulfilled promise in ${value}ms`,
         position: 'topRight',
         timeout: 4000,
         progressBar: false,
@@ -34,9 +38,9 @@ function onSubmit(event) {
       });
     })
     .catch(value => {
-      console.log(`❌ Rejected promise in ${value}ms`);
+      console.log(` Rejected promise in ${value}ms`);
       iziToast.error({
-        message: `❌ Rejected promise in ${value}ms`,
+        message: ` Rejected promise in ${value}ms`,
         position: 'topRight',
         timeout: 4000,
         progressBar: false,
