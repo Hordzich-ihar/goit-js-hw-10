@@ -1,0 +1,98 @@
+.snackbar {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.snackbar-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  max-width: 360px;
+  width: 100%;
+  border: 1px solid #a3a3a3;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.snackbar-label {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  gap: 6px;
+  font-weight: 500;
+  color: #3a3a3a;
+}
+
+.snackbar-label input {
+  padding: 10px 12px;
+  border: 1px solid #a3a3a3;
+  border-radius: 4px;
+  font-size: 16px;
+  background: #fff;
+}
+
+.snackbar-fieldset {
+  border: 1px solid #a3a3a3;
+  border-radius: 4px;
+  padding: 12px 14px 14px;
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  background: #fff;
+}
+
+.snackbar-fieldset legend {
+  font-weight: 500;
+  color: #3a3a3a;
+  padding: 0 6px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: #3a3a3a;
+  font-size: 16px;
+}
+
+.snackbar .btn {
+  width: 100%;
+  justify-self: stretch;
+  border: none;
+  border-radius: 4px;
+  background: #4f6bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 0;
+  box-shadow: none;
+}
+
+.snackbar .btn:hover {
+  transform: none;
+  box-shadow: none;
+  background: #3f59e0;
+}
+
+.iziToast.toast-success {
+  background: #2fbd5a;
+  color: #fff;
+  border-radius: 6px;
+  box-shadow: none;
+}
+.iziToast.toast-error {
+  background: #e34c3c;
+  color: #fff;
+  border-radius: 6px;
+  box-shadow: none;
+}
+.iziToast.toast-success .iziToast-body,
+.iziToast.toast-error .iziToast-body {
+  font-size: 18px;
+  font-weight: 600;
+}

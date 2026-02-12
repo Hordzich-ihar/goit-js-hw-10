@@ -1,0 +1,93 @@
+.timer-page {
+  display: grid;
+  gap: 24px;
+  justify-items: center;
+  padding: 32px 0 48px;
+}
+
+.picker-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+#datetime-picker {
+  min-width: 240px;
+  padding: 10px 12px;
+  border: 1px solid #d8d9e0;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+#datetime-picker:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid #6366f1;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 150ms ease, opacity 120ms ease;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn:not(:disabled):hover,
+.btn:not(:disabled):focus-visible {
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Toast danger theme */
+/* custom toast theme removed */
+
+.timer {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.field {
+  min-width: 88px;
+  padding: 12px 10px;
+  border-radius: 14px;
+  border: 1px solid #e6e7f0;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+  text-align: center;
+}
+
+.value {
+  display: block;
+  font-variant-numeric: tabular-nums;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #111827;
+}
+
+.label {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+}
